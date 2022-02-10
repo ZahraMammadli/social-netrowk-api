@@ -5,10 +5,10 @@ const userData = [
   },
 ];
 
-const thoughtData = [
-  {
-    thoughtText: "this is a sample text to test",
-  },
-];
+// const thoughtData = [
+//   {
+//     thoughtText: "this is a sample text to test",
+//   },
+// ];
 
-module.exports = { userData, thoughtData };
+module.exports = { userData };
