@@ -43,3 +43,8 @@ const validateEmail = function (email) {
   var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   return re.test(email);
 };
+
+// Initialise schema and exporting
+
+const User = model("user", userSchema);
+module.exports = User;
