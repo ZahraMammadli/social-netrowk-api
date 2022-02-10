@@ -1,14 +1,15 @@
 const userData = [
   {
-    username: "Zahra Mammadli",
-    email: "zahra.mrj@gmail.com",
+    username: "TahiraAgh",
+    email: "tahira.agh@gmail.com",
   },
 ];
 
-// const thoughtData = [
-//   {
-//     thoughtText: "this is a sample text to test",
-//   },
-// ];
+const thoughtData = [
+  {
+    username: "TahiraAgh",
+    thoughtText: "this is a sample text to test",
+  },
+];
 
-module.exports = { userData };
+module.exports = { userData, thoughtData };

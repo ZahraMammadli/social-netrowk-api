@@ -19,6 +19,10 @@ const thoughtSchema = new Schema(
       minLength: 1,
       maxLength: 280,
     },
+    username: {
+      type: String,
+      required: true,
+    },
     reactions: [reactionSchema],
   },
   {
