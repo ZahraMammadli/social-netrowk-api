@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const reactionSchema = require("./Reaction");
+const { reactionSchema } = require("./Reaction");
 
 // Schema to create Throught model
 

@@ -1,4 +1,4 @@
-const { Thought } = require("../models");
+const { Thought, Reaction } = require("../models");
 
 module.exports = {
   // Find all Thoughts
@@ -62,9 +62,10 @@ module.exports = {
 
   async createReaction(req, res) {
     try {
+      const reaction = await Reaction.create(req.body);
       const thought = await Thought.findByIdAndUpdate(
         { _id: req.params.thoughtId },
-        { $addToset: { reactions: body } },
+        { $addToSet: { reactions: reaction } },
         { runValidators: true, new: true }
       );
       if (!thought) {

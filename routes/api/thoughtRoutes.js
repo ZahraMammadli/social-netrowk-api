@@ -9,11 +9,10 @@ const {
 
 router.route("/").get(getThoughts).post(createThought);
 
-// /api/users/:userId
-router
-  .route("/:thoughtId")
-  .get(getSingleThought)
-  .delete(deleteThought)
-  .put(createReaction);
+// /api/thoughts/:thoughtId
+router.route("/:thoughtId").get(getSingleThought).delete(deleteThought);
+
+// /api/thoughts/reactions/:thoughtId
+router.route("/reactions/:thoughtId").post(createReaction);
 
 module.exports = router;
