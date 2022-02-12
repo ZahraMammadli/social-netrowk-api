@@ -72,4 +72,24 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+
+  // Add a friend
+
+  async addFriend(req, res) {
+    try {
+      const user = await User.findByIdAndUpdate(
+        { _id: req.params.userId },
+        { $set: req.body },
+        { runValidators: true, new: true }
+      );
+      if (!user) {
+        res.status(400).json({ message: "The user was not found!" });
+      } else {
+        res.status(200).json({ message: "Friend was added" });
+      }
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  },
 };
