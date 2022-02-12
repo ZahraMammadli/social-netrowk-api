@@ -39,4 +39,37 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+
+  //   Update a user
+  async updateUser(req, res) {
+    try {
+      const user = await User.findByIdAndUpdate(
+        { _id: req.params.userId },
+        { $set: req.body },
+        { runValidators: true, new: true }
+      );
+      if (!user) {
+        res.status(400).json({ message: "The user was not found!" });
+      }
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  },
+
+  // Delete a user
+
+  async deleteUser(req, res) {
+    try {
+      const user = await User.findByIdAndDelete({ _id: req.params.userId });
+      if (!user) {
+        res.status(400).json({ message: "The user was not found!" });
+      } else {
+        res.json({ message: "User was successfully deleted!" });
+      }
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  },
 };
