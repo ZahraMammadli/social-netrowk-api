@@ -10,7 +10,10 @@
     "seed": "node utils/seed"
   },
   "dependencies": {
+    "bson": "^4.6.1",
+    "cascading-relations": "^0.7.9",
     "express": "^4.17.1",
+    "moment": "^2.29.1",
     "mongoose": "^6.0.13",
     "mongoose-unique-validator": "^3.0.0",
     "passport-local-mongoose": "^6.1.0"

@@ -1,7 +1,5 @@
 const { Schema, model } = require("mongoose");
 const uniqueValidator = require("mongoose-unique-validator");
-const Thought = require("./Thought");
-const passportLocalMongoose = require("passport-local-mongoose");
 
 //  Function to validate email using regex
 const validateEmail = function (email) {
@@ -27,7 +25,12 @@ const userSchema = new Schema(
         "Please fill a valid email address",
       ],
     },
-    thoughts: [{ type: Schema.Types.ObjectId, ref: "Thoughts" }],
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Thoughts",
+      },
+    ],
     friends: [{ type: Schema.Types.ObjectId, ref: "Users" }],
   },
   {
@@ -45,15 +48,6 @@ userSchema.virtual("friendCount").get(function () {
 
 //  To validate uniqueness of the username i use uniqueValidator plugin
 userSchema.plugin(uniqueValidator);
-
-// Mongoose remove middleware to remove thoughts when user is deleted
-
-userSchema.post("remove", function (next) {
-  Thought.remove({ thoughtId: this._id }).exec();
-  next();
-});
-
-userSchema.plugin(passportLocalMongoose);
 
 // Initialise schema and exporting
 
