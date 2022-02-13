@@ -13,10 +13,8 @@ const reactionSchema = new Schema({
     maxlength: 280,
   },
   createdAt: {
-    type: Date,
-    default: Date.now,
-    get: (createdAtVal) =>
-      moment(createdAtVal).format("MMM DD, YYYY [at] hh:mm a"),
+    type: String,
+    default: () => moment().format("dddd, MMMM Do YYYY, h:mm:ss a"),
   },
 });
 
