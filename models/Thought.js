@@ -11,10 +11,10 @@ const thoughtSchema = new Schema(
       default: false,
     },
     createdAt: {
-      type: Date,
-      default: Date.now,
-      get: (createdAtVal) =>
-        moment(createdAtVal).format("MMM DD, YYYY [at] hh:mm a"),
+      type: String,
+      default: () => moment().format("dddd, MMMM Do YYYY, h:mm:ss a"),
+      // get: (createdAtVal) =>
+      //   moment(createdAtVal).format("MMM DD, YYYY [at] hh:mm a"),
     },
     thoughtText: {
       type: String,
