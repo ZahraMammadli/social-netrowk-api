@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-// const uniqueValidator = require("mongoose-unique-validator");
+const uniqueValidator = require("mongoose-unique-validator");
 
 //  Function to validate email using regex
 const validateEmail = function (email) {
@@ -47,7 +47,7 @@ userSchema.virtual("friendCount").get(function () {
 });
 
 //  To validate uniqueness of the username i use uniqueValidator plugin
-// userSchema.plugin(uniqueValidator);
+userSchema.plugin(uniqueValidator);
 
 // Initialise schema and exporting
 
