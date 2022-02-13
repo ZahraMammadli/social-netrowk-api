@@ -58,6 +58,8 @@ module.exports = {
       );
       if (!user) {
         res.status(400).json({ message: "The user was not found!" });
+      } else {
+        res.status(200).json({ message: "The user was successfully updated!" });
       }
     } catch (err) {
       console.log(err);

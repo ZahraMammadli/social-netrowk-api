@@ -12,7 +12,7 @@ const thoughtSchema = new Schema(
     },
     createdAt: {
       type: String,
-      default: () => moment().format("dddd, MMMM Do YYYY, h:mm:ss a"),
+      default: () => moment().format("MMM DD, YYYY [at] hh:mm a"),
       // get: (createdAtVal) =>
       //   moment(createdAtVal).format("MMM DD, YYYY [at] hh:mm a"),
     },
