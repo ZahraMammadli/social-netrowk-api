@@ -75,6 +75,7 @@ module.exports = {
       } else {
         res.json({ message: "User was successfully deleted!" });
       }
+      // Delete all thoughts related to the user
       const thoughts = await Thought.deleteMany({
         _id: { $in: user.thoughts },
       });

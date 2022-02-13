@@ -2,10 +2,6 @@ const { Schema, model } = require("mongoose");
 const { reactionSchema } = require("./Reaction");
 const moment = require("moment");
 
-// Use moment js to format time
-const getMyTime = function (dateTime) {
-  return moment(dateTime).format("MMMM Do YYYY, h:mm:ss a");
-};
 // Schema to create Throught model
 
 const thoughtSchema = new Schema(
@@ -17,7 +13,8 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
-      get: getMyTime,
+      get: (createdAtVal) =>
+        moment(createdAtVal).format("MMM DD, YYYY [at] hh:mm a"),
     },
     thoughtText: {
       type: String,
